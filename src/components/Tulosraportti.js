@@ -47,7 +47,6 @@ function Tulosraportti()
                     answer = "Ei vastattu";
                 }
 
-                console.log(answer);
                 
                 document.getElementById("questions").innerHTML +=
                     answer + "<br/><br/>";  
