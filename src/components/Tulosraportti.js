@@ -21,7 +21,7 @@ function Tulosraportti()
 
     function fetchAnswers()
     {
-    fetch('http://localhost:8080/rest/kyselyt/' + id)
+    fetch('https://saerarjojo.herokuapp.com/rest/kyselyt/' + id)
     .then(response => response.json())
     .then(data => {
 
