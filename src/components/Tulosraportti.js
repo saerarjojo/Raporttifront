@@ -10,8 +10,9 @@ function Tulosraportti()
     const [done, setDone] = React.useState(false);
 
     var questions = [];
-    var answer;
+    var answers = [];
     var qSize = 0;
+    var aSize = 0;
 
     React.useEffect(() => {    
 
@@ -21,7 +22,7 @@ function Tulosraportti()
 
     function fetchAnswers()
     {
-    fetch('https://saerarjojo.herokuapp.com/rest/kyselyt/' + id)
+    fetch('http://saerarjojo.herokuapp.com/rest/kyselyt/' + id)
     .then(response => response.json())
     .then(data => {
 
@@ -38,18 +39,30 @@ function Tulosraportti()
                 questions[i] = data.kysymykset[i].kysymys;
 
                 document.getElementById("questions").innerHTML += 
-                    "Kysymys " + (i + 1) + " : " + questions[i] + "<br/>Vastaus : ";
+                    "Kysymys " + (i + 1) + " : " + questions[i] + "<br/>Vastaukset : ";
 
+                    
                 
                 if (data.kysymykset[i].vastaukset[0] != null) {
-                    answer = data.kysymykset[i].vastaukset[0].vastaus; 
+                    aSize = data.kysymykset[i].vastaukset.length;
+
+                    for(var j=0; j < aSize; j++) {
+                        answers[j] = data.kysymykset[i].vastaukset[j].vastaus;
+
+                        document.getElementById("questions").innerHTML +=
+                        answers[j] + "<br/>";
+                    }
                 } else {
-                    answer = "Ei vastattu";
+                    answers[0] = "Ei vastattu";
+                    
+                    document.getElementById("questions").innerHTML +=
+                    answers[0] + "<br/><br/>";
                 }
 
-                
                 document.getElementById("questions").innerHTML +=
-                    answer + "<br/><br/>";  
+                    "<br/>";
+
+                
                 
                 
             }
