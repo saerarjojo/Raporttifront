@@ -39,7 +39,7 @@ function Tulosraportti()
                 questions[i] = data.kysymykset[i].kysymys;
 
                 document.getElementById("questions").innerHTML += 
-                    "Kysymys " + (i + 1) + " : " + questions[i] + "<br/>Vastaukset : ";
+                    "Kysymys " + (i + 1) + " : " + questions[i] + "<br/>Vastaukset : <br/>";
 
                     
                 
