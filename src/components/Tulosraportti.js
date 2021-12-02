@@ -13,6 +13,8 @@ function Tulosraportti()
     var answers = [];
     var qSize = 0;
     var aSize = 0;
+    var i = 0;
+    var j = 0;
 
     React.useEffect(() => {    
 
@@ -32,41 +34,36 @@ function Tulosraportti()
         {   
             setDone(true);
 
-            for(var i=0; i < qSize; i++)
+            for(i=0; i < qSize; i++)
             {
                 setTitle(data.title);
 
                 questions[i] = data.kysymykset[i].kysymys;
 
-                document.getElementById("questions").innerHTML += 
+                document.getElementById("report").innerHTML += 
                     "Kysymys " + (i + 1) + " : " + questions[i] + "<br/>Vastaukset : <br/>";
-
-                    
                 
                 if (data.kysymykset[i].vastaukset[0] != null) {
                     aSize = data.kysymykset[i].vastaukset.length;
 
-                    for(var j=0; j < aSize; j++) {
+                    for(j=0; j < aSize; j++) {
                         answers[j] = data.kysymykset[i].vastaukset[j].vastaus;
 
-                        document.getElementById("questions").innerHTML +=
+                        document.getElementById("report").innerHTML +=
                         answers[j] + "<br/>";
                     }
                 } else {
-                    answers[0] = "Ei vastattu";
-                    
-                    document.getElementById("questions").innerHTML +=
-                    answers[0] + "<br/><br/>";
+                    answers[j] = "Ei vastattu";
+
+                    document.getElementById("report").innerHTML +=
+                    answers[j] + "<br/>";
                 }
 
-                document.getElementById("questions").innerHTML +=
+                document.getElementById("report").innerHTML +=
                     "<br/>";
 
                 
-                
-                
             }
-
 
 
         }
@@ -84,9 +81,7 @@ return(
         </form>
 
         <p>Title: {title}</p>
-        <div id="questions"></div>
-
-
+        <div id="report"></div>
 
     </div>
     )
