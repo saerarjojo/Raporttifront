@@ -80,7 +80,7 @@ return(
             <input placeholder="Kyselyn id" value={id} onChange={event => setId(event.target.value)}/>
         </form>
 
-        <p>Title: {title}</p>
+        <p>Kyselyn otsikko: {title}</p>
         <div id="report"></div>
 
     </div>
