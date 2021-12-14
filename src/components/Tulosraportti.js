@@ -38,7 +38,7 @@ function Tulosraportti()
             {
                 setTitle(data.title);
 
-                questions[i] = data.kysymykset[i].kysymys;
+                questions[i] = data.kysymykset[i].kysymysteksti;
 
                 document.getElementById("report").innerHTML += 
                     "Kysymys " + (i + 1) + " : " + questions[i] + "<br/>Vastaukset : <br/>";
