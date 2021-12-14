@@ -77,7 +77,7 @@ return(
         <h3>Tulosraportti</h3>
 
         <form>
-            <input value={id} onChange={event => setId(event.target.value)}/>
+            <input placeholder="Kyselyn id" value={id} onChange={event => setId(event.target.value)}/>
         </form>
 
         <p>Title: {title}</p>
